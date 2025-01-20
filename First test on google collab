@@ -1,0 +1,196 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMxsPHux6VYoR6J4ia6Sx16",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/mahmedejazai/githubnew/blob/main/First%20test%20on%20google%20collab\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "a0KKd6KROgDq",
+        "outputId": "04db400a-c63d-46b8-b789-ce92e4c3f71e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "hello world\n"
+          ]
+        }
+      ],
+      "source": [
+        "print (\"hello world\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "this is the code for hellow world writtin in pyhton"
+      ],
+      "metadata": {
+        "id": "qzy0rEDPPjaU"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "5DEsQ7qTYMCy"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print (\"HELLO WORLD\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1fDLGOjUPujD",
+        "outputId": "be83ee9a-8cc6-4842-9e7e-8a60bf5bbb38"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "HELLO WORLD\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# load an example dataset\n",
+        "from vega_datasets import data\n",
+        "cars = data.cars()\n",
+        "\n",
+        "import altair as alt\n",
+        "\n",
+        "interval = alt.selection_interval()\n",
+        "\n",
+        "alt.Chart(cars).mark_point().encode(\n",
+        "  x='Horsepower',\n",
+        "  y='Miles_per_Gallon',\n",
+        "  color=alt.condition(interval, 'Origin', alt.value('lightgray'))\n",
+        ").properties(\n",
+        "  selection=interval\n",
+        ")"
+      ],
+      "metadata": {
+        "id": "GsjPMWLYYYct"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# load an example dataset\n",
+        "from vega_datasets import data\n",
+        "cars = data.cars()\n",
+        "\n",
+        "import altair as alt\n",
+        "\n",
+        "interval = alt.selection_interval()\n",
+        "\n",
+        "base = alt.Chart(cars).mark_point().encode(\n",
+        "  y='Miles_per_Gallon',\n",
+        "  color=alt.condition(interval, 'Origin', alt.value('lightgray'))\n",
+        ").properties(\n",
+        "  selection=interval\n",
+        ")\n",
+        "\n",
+        "base.encode(x='Acceleration') | base.encode(x='Horsepower')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 729
+        },
+        "id": "BafjKkm7Ycwd",
+        "outputId": "7f2a671a-3748-49db-81f1-1aeefee6940a"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SchemaValidationError",
+          "evalue": "Multiple errors were found.\n\nError 1: `HConcatChart` has no parameter named 'selection'\n\n    Existing parameter names are:\n    hconcat      center     description   params    title       \n    autosize     config     name          resolve   transform   \n    background   data       padding       spacing   usermeta    \n    bounds       datasets                                       \n\n    See the help for `HConcatChart` to read the full description of these parameters\n\nError 2: `HConcatChart` has no parameter named 'selection'\n\n    Existing parameter names are:\n    hconcat      center     description   params    title       \n    autosize     config     name          resolve   transform   \n    background   data       padding       spacing   usermeta    \n    bounds       datasets                                       \n\n    See the help for `HConcatChart` to read the full description of these parameters",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mSchemaValidationError\u001b[0m                     Traceback (most recent call last)",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/altair/vegalite/v5/api.py\u001b[0m in \u001b[0;36mto_dict\u001b[0;34m(self, validate, format, ignore, context)\u001b[0m\n\u001b[1;32m   2002\u001b[0m         \u001b[0mcontext\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"top_level\"\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;32mFalse\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2003\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2004\u001b[0;31m         vegalite_spec: Any = _top_schema_base(super(TopLevelMixin, copy)).to_dict(\n\u001b[0m\u001b[1;32m   2005\u001b[0m             \u001b[0mvalidate\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mvalidate\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mignore\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mignore\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcontext\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mdict\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcontext\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mpre_transform\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mFalse\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2006\u001b[0m         )\n",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/altair/utils/schemapi.py\u001b[0m in \u001b[0;36mto_dict\u001b[0;34m(self, validate, ignore, context)\u001b[0m\n\u001b[1;32m   1167\u001b[0m                 \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mvalidate\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mresult\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1168\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mjsonschema\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mValidationError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0merr\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1169\u001b[0;31m                 \u001b[0;32mraise\u001b[0m \u001b[0mSchemaValidationError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0merr\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1170\u001b[0m         \u001b[0;32mreturn\u001b[0m \u001b[0mresult\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1171\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mSchemaValidationError\u001b[0m: Multiple errors were found.\n\nError 1: `HConcatChart` has no parameter named 'selection'\n\n    Existing parameter names are:\n    hconcat      center     description   params    title       \n    autosize     config     name          resolve   transform   \n    background   data       padding       spacing   usermeta    \n    bounds       datasets                                       \n\n    See the help for `HConcatChart` to read the full description of these parameters\n\nError 2: `HConcatChart` has no parameter named 'selection'\n\n    Existing parameter names are:\n    hconcat      center     description   params    title       \n    autosize     config     name          resolve   transform   \n    background   data       padding       spacing   usermeta    \n    bounds       datasets                                       \n\n    See the help for `HConcatChart` to read the full description of these parameters"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "alt.HConcatChart(...)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "JA-iOf4NRPxh"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "Ere9F4sESdDM"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "THIS IS THE CODE FOR HELLO WORLD\n"
+      ],
+      "metadata": {
+        "id": "v8azlUv3RfmU"
+      }
+    }
+  ]
+}
